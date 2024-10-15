@@ -21,10 +21,10 @@ class PDF_Ingestor(IngestorInterface):
         tmp_pdf2text_path = "pdf2text.txt"
 
         # Use subprocess to run the pdftotext command
-        subprocess.run(["pdftotext", path, tmp_pdf2text_path])
+        subprocess.run(["pdftotext", "-layout", path, tmp_pdf2text_path])
 
         pdf2text = open(tmp_pdf2text_path, "r")
-        for line in pdf2text.readline():
+        for line in pdf2text:
             line = line.strip('\n\r').strip()
             if len(line) > 0:
                 parsed = line.split('-')

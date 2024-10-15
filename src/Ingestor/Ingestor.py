@@ -1,5 +1,4 @@
 
-
 from typing import List
 from QuoteEngine import QuoteModel
 
@@ -47,6 +46,9 @@ class Ingestor(IngestorInterface):
         file_extension = path.split('.')[-1]
         subclass_set = set(cls.__base__.__subclasses__())
         for subclass in subclass_set:
+            if subclass is Ingestor:
+                continue
+            #endif
             if file_extension in subclass.extension_ingestor_list:
                 return subclass.parse(path)
             #endif

@@ -3,8 +3,8 @@ import os
 import requests
 from flask import Flask, render_template, abort, request
 
-# @TODO Import your Ingestor and MemeEngine classes
-from Ingestor import Ingestor
+# Task DONE
+from Ingestor.Ingestor import Ingestor
 from MemeEngine import MemeEngine
 
 app = Flask(__name__)
@@ -19,22 +19,31 @@ def setup():
                     './_data/DogQuotes/DogQuotesPDF.pdf',
                     './_data/DogQuotes/DogQuotesCSV.csv']
 
+    # Task DONE
     quotes = []
     for file in quote_files:
         quotes.extend(Ingestor.parse(file))
     #endfor
 
+    for each in quotes:
+        print(each)
+    #endfor
+
     images_path = "./_data/photos/dog/"
 
-    # TODO: Use the pythons standard library os class to find all
-    # images within the images images_path directory
-    imgs = None
+    # Task DONE
+    imgs = []
+    for root, _, files in os.walk(images_path):
+        imgs = [os.path.join(root, image) for image in files]
+    #endfor
 
     return quotes, imgs
 #enddef
 
 quotes, imgs = setup()
 
+print("End DONE")
+exit()
 
 @app.route('/')
 def meme_rand():
@@ -49,13 +58,14 @@ def meme_rand():
     quote = None
     path = meme.make_meme(img, quote.body, quote.author)
     return render_template('meme.html', path=path)
+#enddef
 
 
 @app.route('/create', methods=['GET'])
 def meme_form():
     """ User input for meme information """
     return render_template('meme_form.html')
-
+#enddef
 
 @app.route('/create', methods=['POST'])
 def meme_post():
@@ -71,7 +81,8 @@ def meme_post():
     path = None
 
     return render_template('meme.html', path=path)
-
+#enddef
 
 if __name__ == "__main__":
     app.run()
+#endif
