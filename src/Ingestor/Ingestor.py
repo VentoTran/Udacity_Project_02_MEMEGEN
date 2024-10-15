@@ -28,14 +28,30 @@ class IngestorInterface:
 class Ingestor(IngestorInterface):
     """ Main Class """
 
+    extension_ingestor_list = []
+
     @classmethod
     def can_ingest(cls, path: str) -> bool:
-        pass
+        file_extension = path.split('.')[-1]
+        subclass_set = set(cls.__base__.__subclasses__())
+        for subclass in subclass_set:
+            if file_extension in subclass.extension_ingestor_list:
+                return True
+            #endif
+        #endfor
+        return False
     #enddef
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        pass
+        file_extension = path.split('.')[-1]
+        subclass_set = set(cls.__base__.__subclasses__())
+        for subclass in subclass_set:
+            if file_extension in subclass.extension_ingestor_list:
+                return subclass.parse(path)
+            #endif
+        #endfor
+        return None
     #enddef
 
 #endclass

@@ -3,7 +3,6 @@ from typing import List
 from QuoteEngine import QuoteModel
 from .Ingestor import IngestorInterface
 
-
 class TXT_Ingestor(IngestorInterface):
     """ Support module to read TXT file """
 
@@ -22,6 +21,8 @@ class TXT_Ingestor(IngestorInterface):
                 parsed = line.split(' - ')
                 quote = QuoteModel(parsed[0], parsed[1])
                 quotes.append(quote)
+            #endif
+        #endfor
 
         # Remember to close file !!!
         txt_file.close()
