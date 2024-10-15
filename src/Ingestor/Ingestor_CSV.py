@@ -24,5 +24,6 @@ class CSV_Ingestor(IngestorInterface):
 
         return quotes
     #enddef
+
 #endclass
 

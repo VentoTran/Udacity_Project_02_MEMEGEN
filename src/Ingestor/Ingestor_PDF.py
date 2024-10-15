@@ -7,7 +7,7 @@ import subprocess
 import os
 
 class PDF_Ingestor(IngestorInterface):
-    """ Support module to read CSV file """
+    """ Support module to read PDF file """
 
     extension_ingestor_list = ['pdf']
 
@@ -33,7 +33,12 @@ class PDF_Ingestor(IngestorInterface):
             #endif
         #endfor
 
+        # Remember to close/delete all temporary file !!!
+        pdf2text.close()
+        os.remove(tmp_pdf2text_path)
+
         return quotes
     #enddef
+
 #endclass
 

@@ -17,6 +17,8 @@ class IngestorInterface:
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
+        """ ! This should be implement in children class ! """
+        print("You should not reach here... Missing implement somewhere!!")
         pass
     #enddef
 
