@@ -2,7 +2,23 @@
 
 Hi, Vento here. This project does not have a dedicated github repo to fork from so I made this repo (pulled from [this repo](https://github.com/udacity/PYND.git) from [Udacity Github Page](https://github.com/udacity)).
 
+As usual, I ***CAN NOT*** stand the tab syntax of python, so expect a lot of # trailing after each un-tab :).
 
+This project is a lot of fun, and Xander is so ***cuteee*** ~!
+
+I'll say that the handle the input from multiple media file type is quite a hassle and might be the main point of this project as it took me awhile to complete.
+
+The 'Web' side of this is, \*hmmm\*, complicate to understand at first but overall it is not too bad. It is easier to consider it as a "***mAgiK b0x***" and can handle all the html requests and web API services. It is always nice to have an interface to interact with and trigger events rather than an unlively CLI with mountain of command...
+
+Anyway, back to the main point of what I did, as always my code is marked with tag **"# TASK DONE"**. You can look for where they are and see what changes I made.
+
+I also import some fonts (located at `./src/_data/Font/`). I did some testing to see what look best and ended up with FiraCode font (which is one of my favorite font :v).
+
+The text that print onto the image is also made to change to random color with each generation because the black and white is very hard to see. How can I focus on laughing if I'm too busy squinting my eyes to read :/.
+
+There is very few comment in this project, part of beacause I'm kinna lazy, but mostly because I think my code is somewhat self-explantory with my way of naming, so that is that.
+
+That is all for my yapping, I hope that you having as much fun as I did while doing this project ~!
 
 # Motivational Puppy Meme Generator
 

@@ -1,5 +1,4 @@
 
-# TASK DONE
 import os
 import random
 import argparse
