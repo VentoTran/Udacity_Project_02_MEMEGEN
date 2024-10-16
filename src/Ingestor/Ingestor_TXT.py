@@ -5,6 +5,7 @@ from .Ingestor import IngestorInterface
 
 import os
 
+# TASK DONE
 class TXT_Ingestor(IngestorInterface):
     """ Support module to read TXT file """
 

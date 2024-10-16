@@ -5,6 +5,7 @@ from .Ingestor import IngestorInterface
 
 import docx
 
+# TASK DONE
 class DOC_Ingestor(IngestorInterface):
     """ Support module to read DOCX file """
 

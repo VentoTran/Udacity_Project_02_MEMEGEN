@@ -6,6 +6,7 @@ from .Ingestor import IngestorInterface
 import subprocess
 import os
 
+# TASK DONE
 class PDF_Ingestor(IngestorInterface):
     """ Support module to read PDF file """
 

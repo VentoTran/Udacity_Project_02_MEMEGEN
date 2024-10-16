@@ -1,6 +1,6 @@
 # Udacity_Project_02_MEMEGEN
 
-Hi, Vento here. This project does not have a dedicated github repo to fork from so I made this repo (pulled from [this repo](https://github.com/udacity/PYND.git) from [Udacity Github Page](https://github.com/udacity).
+Hi, Vento here. This project does not have a dedicated github repo to fork from so I made this repo (pulled from [this repo](https://github.com/udacity/PYND.git) from [Udacity Github Page](https://github.com/udacity)).
 
 
 

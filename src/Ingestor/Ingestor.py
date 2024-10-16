@@ -2,7 +2,7 @@
 from typing import List
 from QuoteEngine import QuoteModel
 
-
+# TASK DONE
 class IngestorInterface:
     """ Base Class """
 
@@ -23,7 +23,7 @@ class IngestorInterface:
 
 #endclass
 
-
+# TASK DONE
 class Ingestor(IngestorInterface):
     """ Main Class """
 
