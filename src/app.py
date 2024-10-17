@@ -1,3 +1,8 @@
+"""
+Main Script Body.
+
+Full Process of the Project.
+"""
 import random
 import os
 import requests
@@ -11,19 +16,19 @@ app = Flask(__name__)
 
 meme = MemeEngine('./static')
 
-def setup():
-    """ Load all resources """
 
-    quote_files =  ['./_data/DogQuotes/DogQuotesTXT.txt',
-                    './_data/DogQuotes/DogQuotesDOCX.docx',
-                    './_data/DogQuotes/DogQuotesPDF.pdf',
-                    './_data/DogQuotes/DogQuotesCSV.csv']
+def setup():
+    """Load all resources."""
+    quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
+                   './_data/DogQuotes/DogQuotesDOCX.docx',
+                   './_data/DogQuotes/DogQuotesPDF.pdf',
+                   './_data/DogQuotes/DogQuotesCSV.csv']
 
     # TASK DONE
     quotes = []
     for file in quote_files:
         quotes.extend(Ingestor.parse(file))
-    #endfor
+    # endfor
 
     images_path = "./_data/photos/dog/"
 
@@ -31,50 +36,54 @@ def setup():
     imgs = []
     for root, _, files in os.walk(images_path):
         imgs = [os.path.join(root, image) for image in files]
-    #endfor
+    # endfor
 
     return quotes, imgs
-#enddef
+# enddef
+
 
 quotes, images = setup()
 
 # ========================== APP ==========================
 
 # TASK DONE
+
+
 @app.route('/')
 def meme_rand():
-    """ Generate a random meme """
-
+    """Generate a random meme."""
     img = random.choice(images)
     quote = random.choice(quotes)
     path = meme.make_meme(img, quote.body, quote.author)
     return render_template('meme.html', path=path)
-#enddef
+# enddef
+
 
 @app.route('/create', methods=['GET'])
 def meme_form():
-    """ User input for meme information """
+    """User input for meme information."""
     return render_template('meme_form.html')
-#enddef
+# enddef
 
 # TASK DONE
+
+
 @app.route('/create', methods=['POST'])
 def meme_post():
-    """ Create a user defined meme """
-
+    """Create a user defined meme."""
     if not request.form["image_url"]:
         return render_template('meme_form.html')
-    #endif
+    # endif
 
     image_url = request.form["image_url"]
     try:
         received_image_byte = requests.get(image_url, verify=False)
         tmp_file = './temp_image.png'
         open(tmp_file, 'wb').write(received_image_byte.content)
-    except:
+    except Exception:
         print("Bad Image URL")
         return render_template('meme_form.html')
-    #endtrycatch
+    # endtrycatch
 
     body = request.form["body"]
     author = request.form["author"]
@@ -85,8 +94,9 @@ def meme_post():
     os.remove(tmp_file)
 
     return render_template('meme.html', path=path)
-#enddef
+# enddef
+
 
 if __name__ == "__main__":
     app.run()
-#endif
+# endif

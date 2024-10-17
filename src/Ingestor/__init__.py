@@ -1,3 +1,8 @@
+"""
+Initialize Ingestor Module.
+
+Include all Ingestor types.
+"""
 # TASK DONE
 from .Ingestor_CSV import CSV_Ingestor
 from .Ingestor_DOCX import DOC_Ingestor

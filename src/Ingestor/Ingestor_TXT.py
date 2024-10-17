@@ -1,4 +1,8 @@
+"""
+TXT type Ingestor.
 
+Ingestor for TXT extension file.
+"""
 from typing import List
 from QuoteEngine import QuoteModel
 from .Ingestor import IngestorInterface
@@ -6,15 +10,16 @@ from .Ingestor import IngestorInterface
 import os
 
 # TASK DONE
+
+
 class TXT_Ingestor(IngestorInterface):
-    """ Support module to read TXT file """
+    """Support module to read TXT file."""
 
     extension_ingestor_list = ['txt']
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """ This is the implementation of the TXT Reader """
-
+        """TXT Reader."""
         quotes = []
 
         txt_file = open(path, "r", encoding='utf-8-sig')
@@ -24,14 +29,13 @@ class TXT_Ingestor(IngestorInterface):
                 parsed = line.split(' - ')
                 quote = QuoteModel('"' + parsed[0] + '"', parsed[1])
                 quotes.append(quote)
-            #endif
-        #endfor
+            # endif
+        # endfor
 
         # Remember to close file !!!
         txt_file.close()
 
         return quotes
-    #enddef
+    # enddef
 
-#endclass
-
+# endclass

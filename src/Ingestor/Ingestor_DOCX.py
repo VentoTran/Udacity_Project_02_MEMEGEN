@@ -1,4 +1,8 @@
+"""
+DOCX type Ingestor.
 
+Ingestor for DOCX extension file.
+"""
 from typing import List
 from QuoteEngine import QuoteModel
 from .Ingestor import IngestorInterface
@@ -6,15 +10,16 @@ from .Ingestor import IngestorInterface
 import docx
 
 # TASK DONE
+
+
 class DOC_Ingestor(IngestorInterface):
-    """ Support module to read DOCX file """
+    """Support module to read DOCX file."""
 
     extension_ingestor_list = ['docx']
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """ This is the implementation of the DOCX Reader """
-
+        """DOCX Reader."""
         quotes = []
 
         docx_file = docx.Document(path)
@@ -23,11 +28,10 @@ class DOC_Ingestor(IngestorInterface):
                 parsed = paragraph.text.split(' - ')
                 quote = QuoteModel(parsed[0], parsed[1])
                 quotes.append(quote)
-            #endif
-        #endfor
+            # endif
+        # endfor
 
         return quotes
-    #enddef
+    # enddef
 
-#endclass
-
+# endclass
